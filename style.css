@@ -12,12 +12,10 @@
 }
 
 .weather {
-    height: 85%;
+    height: 80%;
 }
 
-.time-select, 
-.sound-picker,
-.player-container {
+.time-select, .sound-picker, .player-container {
     height: 80%;
     flex: 1;
     display: flex;
@@ -35,16 +33,15 @@
     height: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(-90deg);
     pointer-events: none;
 }
 
 .time-display {
     position: absolute;
     bottom: 10%;
-    color: white;   
+    color: white;
 }
-
 
 .play {
     height: 25%;
@@ -58,8 +55,7 @@ video {
     z-index: -10;
 }
 
-.time-select button,
-.sound-picker button {
+.time-select button, .sound-picker button {
     color: white;
     width: 30%;
     height: 10%;
@@ -81,7 +77,6 @@ video {
     height: 120px;
     width: 120px;
     border-radius: 50%;
-
 }
 
 .sound-picker button:nth-child(1) {
