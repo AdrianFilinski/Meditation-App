@@ -16,12 +16,10 @@ const app = () => {
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
 
-    //play sound
     play.addEventListener('click', () =>{
         checkPlaying(song);
     });
 
-    //create a function specific to stop and play the sounds
     const checkPlaying = song => {
         if(song.paused) {
             song.play();
@@ -32,6 +30,18 @@ const app = () => {
             video.pause();
             play.src = "./svg/play.svg";
         }
+    };
+
+    song.ontimeupdate = () => {
+        let currentTime = song.currentTime;
+        let elapsed = fakeDuration - currentTime;
+        let seconds = Math.floor(elapsed % 60);
+        let minutes = Math.floor(elapsed / 60);
+
+        let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
+        outline.style.strokeDashoffset = progress;
+
+        timeDisplay.textContent = `${minutes}:${seconds}`;
     };
 };
 
